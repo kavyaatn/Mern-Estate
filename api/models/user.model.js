@@ -17,7 +17,7 @@ const userSchema =new mongoose.Schema({
     },
     avatar:{
         type:String,
-        default:"https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTExL3YxMTgxLXR1LWVsZW1lbnQtNDUxLW0zd3Q2NHd4LmpwZw.jpg"
+        default:"api/models/profile.jpg"
     },
 }, {timestamps:true});
 
