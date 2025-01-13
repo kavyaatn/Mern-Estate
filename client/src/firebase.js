@@ -1,19 +1,19 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBY0tpjzixUThlRKxHcfD-Zk7SCYwItMOs",
-  authDomain: "mern-estate-b7cf5.firebaseapp.com",
-  projectId: "mern-estate-b7cf5",
-  storageBucket: "mern-estate-b7cf5.firebasestorage.app",
-  messagingSenderId: "1005697053207",
-  appId: "1:1005697053207:web:2d92a85567a34e4266a252",
-  measurementId: "G-6PQE27R9HM"
+    apiKey: "AIzaSyCkHupI4kjcqzZK0UITp5pjaVdBvdhV4l0",
+    authDomain: "mango-c3441.firebaseapp.com",
+    projectId: "mango-c3441",
+    storageBucket: "mango-c3441.appspot.com",
+    messagingSenderId: "88152791243",
+    appId: "1:88152791243:web:a930f41983e29dd08aa34e",
+    measurementId: "G-7G1ZSWJJVG",
 };
 
 // Initialize Firebase
