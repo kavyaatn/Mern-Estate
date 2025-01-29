@@ -10,8 +10,10 @@ export default function Profile() {
   const [filePerc, setFilePerc] = useState(0);
   const { currentUser, loading, error } = useSelector((state) => state.user);
   const [file, setFile] = useState(undefined);
+  const [userListings, setuserListings] = useState([]);
   const [fileUploadError, setFileUploadError] =useState(false);
   const [formData, setFormData] = useState({});
+  const [showListError, setShowListError] = useState(false);
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -99,6 +101,22 @@ export default function Profile() {
       dispatch(deleteUserFailure(data.message));
     }
   };
+  const handleClick = async () =>{
+    try{
+      setShowListError(false);
+      const res = await fetch(`/api/user/listings/${currentUser._id}`);
+      const data = await res.json();
+      if (data.success === false){
+        setShowListError(true);
+        return;
+      }
+      setuserListings(data);
+    }catch(error){
+      setShowListError(true);
+    }
+  };
+  console.log(userListings);
+
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
@@ -167,6 +185,15 @@ export default function Profile() {
       </div>
       <p className="text-red-700 mt-4">{error ? error : ''}</p>
       <p className="text-green-700 mt-5">{updateSuccess ? 'User is updated succesfully' : ''}</p>
+      <button onClick={handleClick} className="text-green-700 w-full"> Show Listings</button>
+      <p className="text-red-700 mt-5">{showListError ? 'Error showing listings' : ' '}</p>
+      {userListings && userListings.length > 0 && 
+      userListings.map((listing) =>
+        <div key={listing._id} className="">
+          <Link to={`/listing/${listing._id}`}>
+            <img src={listing.image[0]} alt='listing cover'/>
+          </Link>
+        </div> )}
     </div>
   );
   }
