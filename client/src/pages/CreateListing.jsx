@@ -20,11 +20,7 @@ export default function CreateListing() {
         bedrooms:1,
         bathrooms:1,
         regularPrice:50,
-<<<<<<< HEAD
         discountPrice:0,
-=======
-        discountPrice:50,
->>>>>>> dfe8f7fcef5e3355c7151239b799e62778c35e30
         offer: false,
         parking: false,
         furnished: false,
